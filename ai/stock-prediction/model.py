@@ -11,7 +11,7 @@ from keras.models import Sequential, load_model
 from keras.layers import LSTM, Dense, Dropout
 
 # Load the input data to build the model
-data = open('ai/data/stock-prediction.txt')
+data = open('ai/stock-prediction/stock-prediction.txt')
 
 # Initial data
 m = 100 # dollar
@@ -40,7 +40,7 @@ def createDatasets(all_prices):
     y = []
     for prices in all_prices:
         for i, _ in enumerate(prices):
-            if i == 499: 
+            if i == 499:
                 break
             X.append(prices[i:i+5])
             y.append(prices[i+6] - prices[i+5])
@@ -64,7 +64,7 @@ print(f"Mean squared error of LinReg: {mean_squared_error(y_test, y_pred_lr)}")
 
 # Neural network
 clf_nn = Pipeline([
-    ('scaler', StandardScaler()), 
+    ('scaler', StandardScaler()),
     ('neuralNet', MLPRegressor())
 ])
 
@@ -102,24 +102,4 @@ X_test_scaled = np.reshape(X_test_scaled, (X_test_scaled.shape[0], X_test_scaled
 # Compile the model
 model.compile(loss='mean_squared_error', optimizer='adam')
 model.fit(X_train_scaled, y_train_scaled, epochs=50, batch_size=32)
-
-# Predict and reverse the transform using the same scaler
-y_pred_LSTM = model.predict(X_test_scaled)
-y_pred_LSTM = scaler.inverse_transform(y_pred_LSTM)
-# y_test = scaler.inverse_transform(y_test_scaled.reshape(-1, 1))
-
-# Print some results
-print(y_pred_LSTM)
-print(f"Mean squared error of LSTM: {mean_squared_error(y_test, y_pred_LSTM)}")
-
-#TODO
-#   - Try this script on old mac
-#   - Write the function assuming the model is valid and submit on hackerrank
-
-def printTransactions(m, k, d, name, owned, prices):
-    # If the price will go down, you SELL
-    # If the price will go up, you BUY
-    # Biggest delta for both gets everything
-    return None
-
-
+model.save('stock_prediction.h5')
