@@ -1,3 +1,9 @@
+"""
+This solution is not good. 
+One of the mistakes is looking at absolute price increase, instead of %-increase
+But a stock going from $0.1 to $0.2 is better than a stock going from $50 to $60,
+    because you can buy much more of the first one, so you'll benefit from a 50% increase instead of 20% increase.
+"""
 import math
 import numpy as np
 from sklearn.linear_model import LinearRegression
