@@ -1,6 +1,11 @@
+from keras.models import load_model
+from model import X_test_scaled, y_test, y_test_scaled
+from sklearn.metrics import mean_squared_error
+
 # Predict and reverse the transform using the same scaler
+model = load_model('ai/stock-prediction/stock_prediction.h5')
 y_pred_LSTM = model.predict(X_test_scaled)
-y_pred_LSTM = scaler.inverse_transform(y_pred_LSTM)
+# y_pred_LSTM = scaler.inverse_transform(y_pred_LSTM)
 # y_test = scaler.inverse_transform(y_test_scaled.reshape(-1, 1))
 
 # Print some results
