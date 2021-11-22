@@ -1,14 +1,49 @@
-matrix = [[0.05, 0.54], [0.91, 0.91], [0.31, 0.76], [0.51, 0.31]]
+# break = Abort mission, stop the loop completely
+# continue = Skip this step of the loop, but continue the loop
+# pass = Be pass-ive and do nothing
 
 import numpy as np
+lll = [1, 2]
 
-array = np.array(matrix)
+array = np.full((5,5), 'A')
+print(array)
+print(array[lll])
 
-print(array[:,1])
+a = [[False,False,False],
+    [False,False,False],
+    [False,False,False],
+    [False,False,False]]
 
-a = [1,2,3]
-b=[4,5,6]
+print("HAaaaaaaaa", a[1][2])
 
-c = a * b
+a[1][2] = True
 
-print(c)
+print(a)
+
+
+
+
+"""
+  01234567890123456789
+0 %%%%%%%%%%%%%%%%%%%%
+1 %--------------%---%  
+2 %-%%-%%-%%-%%-%%-%-%  
+3 %--------P-------%-%  
+4 %%%%%%%%%%%%%%%%%%-%  
+5 %.-----------------%  
+6 %%%%%%%%%%%%%%%%%%%%  
+"""
+
+
+"""
+3 9  
+5 1  
+7 20  
+%%%%%%%%%%%%%%%%%%%%
+%--------------%---%  
+%-%%-%%-%%-%%-%%-%-%  
+%--------P-------%-%  
+%%%%%%%%%%%%%%%%%%-%  
+%.-----------------%  
+%%%%%%%%%%%%%%%%%%%% 
+"""
