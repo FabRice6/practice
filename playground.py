@@ -40,5 +40,10 @@ bot_r, bot_c = 0, 0
 
 print(directions.sort(key = lambda k: (k[0] - bot_r)**2 + (k[1] - bot_c)**2))
 
-sorted(coordinates, key = lambda x: (sum(x), x[0]))
-sorted(coordinates, key = lambda x: (sum(x), x[0]))
+row = [ '-', '-', '-', 'd', '-', '-']
+
+if 'd' in row:
+    print(row.index('d'))
+else:
+    print('not in list')
+
