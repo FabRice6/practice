@@ -3,47 +3,42 @@
 # pass = Be pass-ive and do nothing
 
 import numpy as np
-lll = [1, 2]
 
-array = np.full((5,5), 'A')
-print(array)
-print(array[lll])
+wave = 4
 
-a = [[False,False,False],
-    [False,False,False],
-    [False,False,False],
-    [False,False,False]]
+top_row = [[-wave, col] for col in range(-wave, wave+1)]
+bottom_row = [[wave, col] for col in range(-wave, wave+1)]
+left_row = [[row, -wave] for row in range(-wave+1, wave)]
+right_row = [[row, wave] for row in range(-wave+1, wave)]
 
-print("HAaaaaaaaa", a[1][2])
+directions = top_row + bottom_row + left_row + right_row
 
-a[1][2] = True
+zeros = np.zeros((2*wave+1, 2*wave+1))
 
-print(a)
+# print(zeros)
 
+for position in directions:
+    zeros[wave + position[0]][wave + position[1]] = 1
 
+# print(zeros)
 
+# print('TOP')
+# print(top_row)
+# print('BOTTOM')
+# print(bottom_row)
+# print('LEFT')
+# print(left_row)
+# print('RIGHT')
+# print(right_row)
+print('ALL')
+print(directions)
 
-"""
-  01234567890123456789
-0 %%%%%%%%%%%%%%%%%%%%
-1 %--------------%---%  
-2 %-%%-%%-%%-%%-%%-%-%  
-3 %--------P-------%-%  
-4 %%%%%%%%%%%%%%%%%%-%  
-5 %.-----------------%  
-6 %%%%%%%%%%%%%%%%%%%%  
-"""
+bot_r, bot_c = 0, 0
+# distances = sorted(directions, key=lambda k: abs(k[0]-bot_r) + abs(k[1]-bot_c))
 
+# print(distances)
 
-"""
-3 9  
-5 1  
-7 20  
-%%%%%%%%%%%%%%%%%%%%
-%--------------%---%  
-%-%%-%%-%%-%%-%%-%-%  
-%--------P-------%-%  
-%%%%%%%%%%%%%%%%%%-%  
-%.-----------------%  
-%%%%%%%%%%%%%%%%%%%% 
-"""
+print(directions.sort(key = lambda k: (k[0] - bot_r)**2 + (k[1] - bot_c)**2))
+
+sorted(coordinates, key = lambda x: (sum(x), x[0]))
+sorted(coordinates, key = lambda x: (sum(x), x[0]))
