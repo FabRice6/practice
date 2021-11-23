@@ -3,6 +3,8 @@
 # pass = Be pass-ive and do nothing
 
 import numpy as np
+import pandas as pd
+import math
 
 wave = 4
 
@@ -47,3 +49,45 @@ if 'd' in row:
 else:
     print('not in list')
 
+a = [1,3,2]
+
+a.sort()
+
+print(a)
+
+data = { 
+    'Country': [ 'Belgium', 'India', 'Brazil'],
+    'Capital': ['Brussels' , 'New Delhi', 'Brasilia'],
+    'Population': [11190846, 1303171035, 207847528]
+}
+
+df = pd.DataFrame(data)
+
+print(df.loc[1])
+
+df.index = ['een', 'twee', 'drie']
+
+print(df.min())
+
+ftn = lambda x: x*2
+
+df2 = df.applymap(ftn)
+
+print(df2)
+
+s ='akbdk'
+n = 9
+
+print(s.count('a'))
+
+
+morse_code = '  hello ik ben fabrice'
+
+for char in morse_code:
+    print(char)
+    if char == ' ':
+        morse_code = morse_code[1:]
+    else:
+        break
+
+print(morse_code)
